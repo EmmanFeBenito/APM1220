@@ -1,0 +1,427 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\title{APM1220: FA 1 Solutions}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 2.2}
+Given:
+\[
+A = \begin{bmatrix} -1 & 3 \\ 4 & 2 \end{bmatrix}, \quad
+B = \begin{bmatrix} 4 & -3 \\ 1 & -2 \\ -2 & 0 \end{bmatrix}, \quad
+C = \begin{bmatrix} 5 \\ -4 \\ 2 \end{bmatrix}
+\]
+
+\noindent \textbf{(a)} $5A$
+\[
+5A = 5 \begin{bmatrix} -1 & 3 \\ 4 & 2 \end{bmatrix} = \begin{bmatrix} (5)(-1) & (5)(3) \\ (5)(4) & (5)(2) \end{bmatrix} = \begin{bmatrix} -5 & 15 \\ 20 & 10 \end{bmatrix}
+\]
+
+\noindent \textbf{(b)} $BA$
+\[
+BA = \begin{bmatrix} 4 & -3 \\ 1 & -2 \\ -2 & 0 \end{bmatrix} \begin{bmatrix} -1 & 3 \\ 4 & 2 \end{bmatrix} = \begin{bmatrix} (4)(-1)+(-3)(4) & (4)(3)+(-3)(2) \\ (1)(-1)+(-2)(4) & (1)(3)+(-2)(2) \\ (-2)(-1)+(0)(4) & (-2)(3)+(0)(2) \end{bmatrix} 
+\]
+\[
+BA = \begin{bmatrix} -4 - 12 & 12 - 6 \\ -1 - 8 & 3 - 4 \\ 2 + 0 & -6 + 0 \end{bmatrix} = \begin{bmatrix} -16 & 6 \\ -9 & -1 \\ 2 & -6 \end{bmatrix}
+\]
+
+\noindent \textbf{(c)} $A'B'$ \\
+First, transpose $A$ and $B$:
+\[
+A' = \begin{bmatrix} -1 & 4 \\ 3 & 2 \end{bmatrix}, \quad
+B' = \begin{bmatrix} 4 & 1 & -2 \\ -3 & -2 & 0 \end{bmatrix}
+\]
+Multiply $A'$ by $B'$:
+\[
+A'B' = \begin{bmatrix} -1 & 4 \\ 3 & 2 \end{bmatrix} \begin{bmatrix} 4 & 1 & -2 \\ -3 & -2 & 0 \end{bmatrix} = \begin{bmatrix} (-1)(4)+(4)(-3) & (-1)(1)+(4)(-2) & (-1)(-2)+(4)(0) \\ (3)(4)+(2)(-3) & (3)(1)+(2)(-2) & (3)(-2)+(2)(0) \end{bmatrix}
+\]
+\[
+A'B' = \begin{bmatrix} -4 - 12 & -1 - 8 & 2 + 0 \\ 12 - 6 & 3 - 4 & -6 + 0 \end{bmatrix} = \begin{bmatrix} -16 & -9 & 2 \\ 6 & -1 & -6 \end{bmatrix}
+\]
+
+\noindent \textbf{(d)} $C'B$ \\
+First, transpose $C$:
+\[
+C' = \begin{bmatrix} 5 & -4 & 2 \end{bmatrix}
+\]
+Multiply $C'$ by $B$:
+\[
+C'B = \begin{bmatrix} 5 & -4 & 2 \end{bmatrix} \begin{bmatrix} 4 & -3 \\ 1 & -2 \\ -2 & 0 \end{bmatrix} = \begin{bmatrix} (5)(4) + (-4)(1) + (2)(-2) & (5)(-3) + (-4)(-2) + (2)(0) \end{bmatrix} 
+\]
+\[
+C'B = \begin{bmatrix} 20 - 4 - 4 & -15 + 8 + 0 \end{bmatrix} = \begin{bmatrix} 12 & -7 \end{bmatrix}
+\]
+
+\noindent \textbf{(e)} Is $AB$ defined? \\
+No. Matrix $A$ has 2 columns, but matrix $B$ has 3 rows. Matrix multiplication requires the number of columns in the first matrix to equal the number of rows in the second matrix.
+
+
+\section*{Problem 2.4}
+\noindent \textbf{(a)} Prove $(A')^{-1} = (A^{-1})'$ \\
+By definition, a matrix multiplied by its inverse equals the identity matrix, $I$: 
+\[
+AA^{-1} = I
+\]
+Take the transpose of both sides:
+\[
+(AA^{-1})' = I'
+\]
+Applying the transpose rule for multiplication, which states $(XY)' = Y'X'$, and since transposing the identity matrix changes nothing ($I' = I$):
+\[
+(A^{-1})'A' = I
+\]
+This equation tells us that when you multiply $A'$ by $(A^{-1})'$, you get the identity matrix. By definition, this means $(A^{-1})'$ is the inverse of $A'$. Therefore, $(A')^{-1} = (A^{-1})'$.
+
+\vspace{1em}
+\noindent \textbf{(b)} Prove $(AB)^{-1} = B^{-1}A^{-1}$ \\
+To prove this, we multiply $(AB)$ by $(B^{-1}A^{-1})$ to show that the result is the identity matrix $I$.
+\[
+(B^{-1}A^{-1})(AB) = B^{-1}(A^{-1}A)B 
+\]
+Since $A^{-1}A = I$:
+\[
+B^{-1}(I)B = B^{-1}B 
+\]
+Since $B^{-1}B = I$:
+\[
+(B^{-1}A^{-1})(AB) = I
+\]
+Because their product is the identity matrix, the inverse of $(AB)$ is $(B^{-1}A^{-1})$.
+
+\hrulefill
+
+\section*{Problem 2.8}
+Given $A = \begin{bmatrix} 1 & 2 \\ 2 & -2 \end{bmatrix}$.
+
+\noindent \textbf{Eigenvalues:} \\
+Solve $\det(A - \lambda I) = 0$. First, find $\lambda I$:
+\[
+\lambda I = \begin{bmatrix} \lambda & 0 \\ 0 & \lambda \end{bmatrix}
+\]
+Subtract from $A$:
+\[
+A - \lambda I = \begin{bmatrix} 1 & 2 \\ 2 & -2 \end{bmatrix} - \begin{bmatrix} \lambda & 0 \\ 0 & \lambda \end{bmatrix} = \begin{bmatrix} 1-\lambda & 2 \\ 2 & -2-\lambda \end{bmatrix}
+\]
+Find the determinant and solve for $\lambda$:
+\[
+(1-\lambda)(-2-\lambda) - (2)(2) = (-2 - \lambda + 2\lambda + \lambda^2) - 4 = \lambda^2 + \lambda - 6 = 0
+\]
+\[
+(\lambda + 3)(\lambda - 2) = 0 
+\]
+This gives two eigenvalues: $\lambda_1 = 2$ and $\lambda_2 = -3$.
+
+\noindent \textbf{Eigenvectors:} \\
+For $\lambda_1 = 2$, we solve the system $(A - 2I)x = 0$:
+\[
+A - 2I = \begin{bmatrix} 1-2 & 2 \\ 2 & -2-2 \end{bmatrix} = \begin{bmatrix} -1 & 2 \\ 2 & -4 \end{bmatrix}
+\]
+\[
+\begin{bmatrix} -1 & 2 \\ 2 & -4 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}
+\]
+This creates two linear equations:
+\[
+-x_1 + 2x_2 = 0
+\]
+\[
+2x_1 - 4x_2 = 0
+\]
+From the first equation, we get $x_1 = 2x_2$. If we substitute this into the second equation, we get $2(2x_2) - 4x_2 = 4x_2 - 4x_2 = 0$, confirming $x_2$ is a free variable. \\ \\
+Let $x_2 = 1$, which makes $x_1 = 2(1) = 2$. The unnormalized eigenvector is $[2, 1]'$. \\ \\
+To normalize it, calculate its length: $\sqrt{2^2 + 1^2} = \sqrt{4 + 1} = \sqrt{5}$. Divide the vector by its length:
+\[
+e_1 = \begin{bmatrix} 2/\sqrt{5} \\ 1/\sqrt{5} \end{bmatrix}
+\]
+
+For $\lambda_2 = -3$, we solve the system $(A - (-3)I)x = 0$:
+\[
+A + 3I = \begin{bmatrix} 1+3 & 2 \\ 2 & -2+3 \end{bmatrix} = \begin{bmatrix} 4 & 2 \\ 2 & 1 \end{bmatrix}
+\]
+\[
+\begin{bmatrix} 4 & 2 \\ 2 & 1 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}
+\]
+This creates two linear equations:
+\[
+4x_1 + 2x_2 = 0
+\]
+\[
+2x_1 + x_2 = 0
+\]
+From the second equation, we get $x_2 = -2x_1$. If we substitute this into the first equation, we get $4x_1 + 2(-2x_1) = 4x_1 - 4x_1 = 0$, confirming $x_1$ is a free variable.  \\ \\
+Let $x_1 = 1$, which makes $x_2 = -2(1) = -2$. The unnormalized eigenvector is $[1, -2]'$. \\ \\
+To normalize it, calculate its length: $\sqrt{1^2 + (-2)^2} = \sqrt{1 + 4} = \sqrt{5}$. Divide the vector by its length:
+\[
+e_2 = \begin{bmatrix} 1/\sqrt{5} \\ -2/\sqrt{5} \end{bmatrix}
+\]
+
+\noindent \textbf{Spectral Decomposition ($A = \lambda_1 e_1 e_1' + \lambda_2 e_2 e_2'$):}
+\begin{align*}
+A &= 2 \begin{bmatrix} 2/\sqrt{5} \\ 1/\sqrt{5} \end{bmatrix} \begin{bmatrix} 2/\sqrt{5} & 1/\sqrt{5} \end{bmatrix} - 3 \begin{bmatrix} 1/\sqrt{5} \\ -2/\sqrt{5} \end{bmatrix} \begin{bmatrix} 1/\sqrt{5} & -2/\sqrt{5} \end{bmatrix} \\
+&= 2 \begin{bmatrix} (2/\sqrt{5})(2/\sqrt{5}) & (2/\sqrt{5})(1/\sqrt{5}) \\ (1/\sqrt{5})(2/\sqrt{5}) & (1/\sqrt{5})(1/\sqrt{5}) \end{bmatrix} - 3 \begin{bmatrix} (1/\sqrt{5})(1/\sqrt{5}) & (1/\sqrt{5})(-2/\sqrt{5}) \\ (-2/\sqrt{5})(1/\sqrt{5}) & (-2/\sqrt{5})(-2/\sqrt{5}) \end{bmatrix} \\
+&= 2 \begin{bmatrix} 4/5 & 2/5 \\ 2/5 & 1/5 \end{bmatrix} - 3 \begin{bmatrix} 1/5 & -2/5 \\ -2/5 & 4/5 \end{bmatrix} \\
+&= 2\begin{bmatrix} 4/5 & 2/5 \\ 2/5 & 1/5 \end{bmatrix} - 3\begin{bmatrix} 1/5 & -2/5 \\ -2/5 & 4/5 \end{bmatrix}
+= \begin{bmatrix} 8/5 & 4/5 \\ 4/5 & 2/5 \end{bmatrix} - \begin{bmatrix} 3/5 & -6/5 \\ -6/5 & 12/5 \end{bmatrix}
+= \begin{bmatrix} 5/5 & 10/5 \\ 10/5 & -10/5 \end{bmatrix}
+= \begin{bmatrix} 1 & 2 \\ 2 & -2 \end{bmatrix} = A
+\end{align*}
+
+\hrulefill
+
+\section*{Problem 2.11}
+Expand the determinant along the first row using cofactors:
+\[
+|A| = a_{11}A_{11} + a_{12}A_{12} + \dots + a_{1p}A_{1p}
+\]
+Since $A$ is a diagonal matrix, all off-diagonal elements in the first row are zero ($a_{12} = 0, \dots, a_{1p} = 0$). This cancels out almost everything, simplifying the formula to:
+\[
+|A| = a_{11}A_{11} + (0)A_{12} + \dots + (0)A_{1p}
+\]
+\[
+|A| = a_{11}A_{11}
+\]
+The submatrix $A_{11}$ is also a diagonal matrix. Expanding its determinant in the exact same way yields:
+\[
+A_{11} = a_{22}A_{22}
+\]
+Substituting this back gives:
+\[
+|A| = a_{11}(a_{22}A_{22})
+\]
+Repeating this recursive process for every submatrix down the diagonal results in the product of all main diagonal elements:
+\[
+|A| = a_{11} \cdot a_{22} \cdot a_{33} \cdots a_{pp}
+\]
+
+
+\section*{Problem 2.24}
+Given $\Sigma = \begin{bmatrix} 4 & 0 & 0 \\ 0 & 9 & 0 \\ 0 & 0 & 1 \end{bmatrix}$.
+
+\noindent \textbf{(a)} $\Sigma^{-1}$ \\
+The inverse of a diagonal matrix is formed by taking the reciprocal of each element on the main diagonal:
+\[
+\Sigma^{-1} = \begin{bmatrix} 1/4 & 0 & 0 \\ 0 & 1/9 & 0 \\ 0 & 0 & 1/1 \end{bmatrix} = \begin{bmatrix} 1/4 & 0 & 0 \\ 0 & 1/9 & 0 \\ 0 & 0 & 1 \end{bmatrix}
+\]
+
+\noindent \textbf{(b)} Eigenvalues and eigenvectors of $\Sigma$ \\
+Solve the characteristic equation $\det(\Sigma - \lambda I) = 0$:
+\[
+\lambda I = \begin{bmatrix} \lambda & 0 & 0 \\ 0 & \lambda & 0 \\ 0 & 0 & \lambda \end{bmatrix}
+\]
+\[
+\Sigma - \lambda I = \begin{bmatrix} 4 & 0 & 0 \\ 0 & 9 & 0 \\ 0 & 0 & 1 \end{bmatrix} - \begin{bmatrix} \lambda & 0 & 0 \\ 0 & \lambda & 0 \\ 0 & 0 & \lambda \end{bmatrix} = \begin{bmatrix} 4-\lambda & 0 & 0 \\ 0 & 9-\lambda & 0 \\ 0 & 0 & 1-\lambda \end{bmatrix}
+\]
+The determinant of a diagonal matrix is the product of its diagonal elements:
+\[
+\det(\Sigma - \lambda I) = (4-\lambda)(9-\lambda)(1-\lambda) = 0
+\]
+Setting each term to zero gives the eigenvalues: $\lambda_1 = 4, \lambda_2 = 9, \lambda_3 = 1$. 
+\\ \\
+To find the eigenvectors, solve $(\Sigma - \lambda I)x = 0$ for each eigenvalue.
+
+For $\lambda_1 = 4$:
+\[
+\begin{bmatrix} 4-4 & 0 & 0 \\ 0 & 9-4 & 0 \\ 0 & 0 & 1-4 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} 0 & 0 & 0 \\ 0 & 5 & 0 \\ 0 & 0 & -3 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}
+\]
+This yields the equations: $5x_2 = 0 \implies x_2 = 0$ and $-3x_3 = 0 \implies x_3 = 0$. The variable $x_1$ is free. Let $x_1 = 1$.
+\[
+e_1 = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}
+\]
+
+For $\lambda_2 = 9$:
+\[
+\begin{bmatrix} 4-9 & 0 & 0 \\ 0 & 9-9 & 0 \\ 0 & 0 & 1-9 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} -5 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & -8 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}
+\]
+This yields the equations: $-5x_1 = 0 \implies x_1 = 0$ and $-8x_3 = 0 \implies x_3 = 0$. The variable $x_2$ is free. Let $x_2 = 1$.
+\[
+e_2 = \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}
+\]
+
+For $\lambda_3 = 1$:
+\[
+\begin{bmatrix} 4-1 & 0 & 0 \\ 0 & 9-1 & 0 \\ 0 & 0 & 1-1 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} 3 & 0 & 0 \\ 0 & 8 & 0 \\ 0 & 0 & 0 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}
+\]
+This yields the equations: $3x_1 = 0 \implies x_1 = 0$ and $8x_2 = 0 \implies x_2 = 0$. The variable $x_3$ is free. Let $x_3 = 1$.
+\[
+e_3 = \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}
+\]
+
+\noindent \textbf{(c)} Eigenvalues and eigenvectors of $\Sigma^{-1}$ \\
+Solve $\det(\Sigma^{-1} - \lambda I) = 0$:
+\[
+\Sigma^{-1} - \lambda I = \begin{bmatrix} 1/4-\lambda & 0 & 0 \\ 0 & 1/9-\lambda & 0 \\ 0 & 0 & 1-\lambda \end{bmatrix}
+\]
+\[
+\det(\Sigma^{-1} - \lambda I) = \left(\frac{1}{4}-\lambda\right)\left(\frac{1}{9}-\lambda\right)(1-\lambda) = 0
+\]
+Setting each term to zero gives the eigenvalues: $\lambda_1 = 1/4, \lambda_2 = 1/9, \lambda_3 = 1$.
+\\ \\
+To find the eigenvectors, solve $(\Sigma^{-1} - \lambda I)x = 0$ for each eigenvalue.
+
+For $\lambda_1 = 1/4$:
+\[
+\begin{bmatrix} 1/4-1/4 & 0 & 0 \\ 0 & 1/9-1/4 & 0 \\ 0 & 0 & 1-1/4 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} 0 & 0 & 0 \\ 0 & -5/36 & 0 \\ 0 & 0 & 3/4 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}
+\]
+This yields the equations: $(-5/36)x_2 = 0 \implies x_2 = 0$ and $(3/4)x_3 = 0 \implies x_3 = 0$. The variable $x_1$ is free. Let $x_1 = 1$.
+\[
+e_1 = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}
+\]
+
+For $\lambda_2 = 1/9$:
+\[
+\begin{bmatrix} 1/4-1/9 & 0 & 0 \\ 0 & 1/9-1/9 & 0 \\ 0 & 0 & 1-1/9 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} 5/36 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 8/9 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}
+\]
+This yields the equations: $(5/36)x_1 = 0 \implies x_1 = 0$ and $(8/9)x_3 = 0 \implies x_3 = 0$. The variable $x_2$ is free. Let $x_2 = 1$.
+\[
+e_2 = \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}
+\]
+
+For $\lambda_3 = 1$:
+\[
+\begin{bmatrix} 1/4-1 & 0 & 0 \\ 0 & 1/9-1 & 0 \\ 0 & 0 & 1-1 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} -3/4 & 0 & 0 \\ 0 & -8/9 & 0 \\ 0 & 0 & 0 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}
+\]
+This yields the equations: $(-3/4)x_1 = 0 \implies x_1 = 0$ and $(-8/9)x_2 = 0 \implies x_2 = 0$. The variable $x_3$ is free. Let $x_3 = 1$.
+\[
+e_3 = \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}
+\]
+
+\hrulefill
+
+\section*{Problem 2.30}
+Given:
+\[
+\mu_X = \begin{bmatrix} 4 \\ 3 \\ 2 \\ 1 \end{bmatrix}, \quad
+\Sigma_X = \begin{bmatrix} 3 & 0 & 2 & 2 \\ 0 & 1 & 1 & 0 \\ 2 & 1 & 9 & -2 \\ 2 & 0 & -2 & 4 \end{bmatrix}
+\]
+Partitions: $X^{(1)} = \begin{bmatrix} X_1 \\ X_2 \end{bmatrix}, X^{(2)} = \begin{bmatrix} X_3 \\ X_4 \end{bmatrix}$, $A = \begin{bmatrix} 1 & 2 \end{bmatrix}$, $B = \begin{bmatrix} 1 & -2 \\ 2 & -1 \end{bmatrix}$
+
+\noindent \textbf{(a)} $E(X^{(1)})$
+\[
+E(X^{(1)}) = \begin{bmatrix} 4 \\ 3 \end{bmatrix}
+\]
+
+\noindent \textbf{(b)} $E(AX^{(1)})$
+\[
+E(AX^{(1)}) = A E(X^{(1)}) = \begin{bmatrix} 1 & 2 \end{bmatrix} \begin{bmatrix} 4 \\ 3 \end{bmatrix} = (1)(4) + (2)(3) = 4 + 6 = 10
+\]
+
+\noindent \textbf{(c)} $Cov(X^{(1)})$ 
+We extract the variables associated with $X_1$ and $X_2$ from the top-left $2 \times 2$ partition of $\Sigma_X$:
+\[
+Cov(X^{(1)}) = \Sigma_{11} = \begin{bmatrix} 3 & 0 \\ 0 & 1 \end{bmatrix}
+\]
+
+\noindent \textbf{(d)} $Cov(AX^{(1)})$
+\[
+Cov(AX^{(1)}) = A \Sigma_{11} A' = \begin{bmatrix} 1 & 2 \end{bmatrix} \begin{bmatrix} 3 & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} 1 \\ 2 \end{bmatrix} 
+\]
+First multiply $A$ and $\Sigma_{11}$:
+\[
+A \Sigma_{11} = \begin{bmatrix} (1)(3)+(2)(0) & (1)(0)+(2)(1) \end{bmatrix} = \begin{bmatrix} 3 & 2 \end{bmatrix}
+\]
+Next multiply by $A'$:
+\[
+(A \Sigma_{11}) A' = \begin{bmatrix} 3 & 2 \end{bmatrix} \begin{bmatrix} 1 \\ 2 \end{bmatrix} = (3)(1) + (2)(2) = 3 + 4 = 7
+\]
+
+\noindent \textbf{(e)} $E(X^{(2)})$
+\[
+E(X^{(2)}) = \begin{bmatrix} 2 \\ 1 \end{bmatrix}
+\]
+
+\noindent \textbf{(f)} $E(BX^{(2)})$
+\[
+E(BX^{(2)}) = B E(X^{(2)}) = \begin{bmatrix} 1 & -2 \\ 2 & -1 \end{bmatrix} \begin{bmatrix} 2 \\ 1 \end{bmatrix} = \begin{bmatrix} (1)(2) + (-2)(1) \\ (2)(2) + (-1)(1) \end{bmatrix} = \begin{bmatrix} 2 - 2 \\ 4 - 1 \end{bmatrix} = \begin{bmatrix} 0 \\ 3 \end{bmatrix}
+\]
+
+\noindent \textbf{(g)} $Cov(X^{(2)})$
+We extract the variables associated with $X_3$ and $X_4$ from the bottom-right $2 \times 2$ partition of $\Sigma_X$:
+\[
+Cov(X^{(2)}) = \Sigma_{22} = \begin{bmatrix} 9 & -2 \\ -2 & 4 \end{bmatrix}
+\]
+
+\noindent \textbf{(h)} $Cov(BX^{(2)})$
+\[
+Cov(BX^{(2)}) = B \Sigma_{22} B' 
+\]
+First multiply $B$ and $\Sigma_{22}$:
+\[
+B \Sigma_{22} = \begin{bmatrix} 1 & -2 \\ 2 & -1 \end{bmatrix} \begin{bmatrix} 9 & -2 \\ -2 & 4 \end{bmatrix} = \begin{bmatrix} (1)(9)+(-2)(-2) & (1)(-2)+(-2)(4) \\ (2)(9)+(-1)(-2) & (2)(-2)+(-1)(4) \end{bmatrix} = \begin{bmatrix} 9+4 & -2-8 \\ 18+2 & -4-4 \end{bmatrix} = \begin{bmatrix} 13 & -10 \\ 20 & -8 \end{bmatrix}
+\]
+Next multiply by $B'$:
+\[
+(B \Sigma_{22}) B' = \begin{bmatrix} 13 & -10 \\ 20 & -8 \end{bmatrix} \begin{bmatrix} 1 & 2 \\ -2 & -1 \end{bmatrix} = \begin{bmatrix} (13)(1)+(-10)(-2) & (13)(2)+(-10)(-1) \\ (20)(1)+(-8)(-2) & (20)(2)+(-8)(-1) \end{bmatrix}
+\]
+\[
+Cov(BX^{(2)}) = \begin{bmatrix} 13+20 & 26+10 \\ 20+16 & 40+8 \end{bmatrix} = \begin{bmatrix} 33 & 36 \\ 36 & 48 \end{bmatrix}
+\]
+
+\noindent \textbf{(i)} $Cov(X^{(1)}, X^{(2)})$ 
+We extract the variables crossing $X_1, X_2$ with $X_3, X_4$ from the top-right $2 \times 2$ partition of $\Sigma_X$:
+\[
+Cov(X^{(1)}, X^{(2)}) = \Sigma_{12} = \begin{bmatrix} 2 & 2 \\ 1 & 0 \end{bmatrix}
+\]
+
+\noindent \textbf{(j)} $Cov(AX^{(1)}, BX^{(2)})$
+\[
+Cov(AX^{(1)}, BX^{(2)}) = A \Sigma_{12} B' 
+\]
+First multiply $A$ and $\Sigma_{12}$:
+\[
+A \Sigma_{12} = \begin{bmatrix} 1 & 2 \end{bmatrix} \begin{bmatrix} 2 & 2 \\ 1 & 0 \end{bmatrix} = \begin{bmatrix} (1)(2)+(2)(1) & (1)(2)+(2)(0) \end{bmatrix} = \begin{bmatrix} 2+2 & 2+0 \end{bmatrix} = \begin{bmatrix} 4 & 2 \end{bmatrix}
+\]
+Next multiply by $B'$:
+\[
+(A \Sigma_{12}) B' = \begin{bmatrix} 4 & 2 \end{bmatrix} \begin{bmatrix} 1 & 2 \\ -2 & -1 \end{bmatrix} = \begin{bmatrix} (4)(1)+(2)(-2) & (4)(2)+(2)(-1) \end{bmatrix} 
+\]
+\[
+Cov(AX^{(1)}, BX^{(2)}) = \begin{bmatrix} 4-4 & 8-2 \end{bmatrix} = \begin{bmatrix} 0 & 6 \end{bmatrix}
+\]
+
+\hrulefill
+
+\section*{Problem 2.41}
+Given:
+\[
+\mu_X = \begin{bmatrix} 3 \\ 2 \\ -2 \\ 0 \end{bmatrix}, \quad
+\Sigma_X = \begin{bmatrix} 3 & 0 & 0 & 0 \\ 0 & 3 & 0 & 0 \\ 0 & 0 & 3 & 0 \\ 0 & 0 & 0 & 3 \end{bmatrix} = 3I, \quad
+A = \begin{bmatrix} 1 & -1 & 0 & 0 \\ 1 & 1 & -2 & 0 \\ 1 & 1 & 1 & -3 \end{bmatrix}
+\]
+
+\noindent \textbf{(a)} $E(AX)$
+\[
+E(AX) = A\mu_X = \begin{bmatrix} 1 & -1 & 0 & 0 \\ 1 & 1 & -2 & 0 \\ 1 & 1 & 1 & -3 \end{bmatrix} \begin{bmatrix} 3 \\ 2 \\ -2 \\ 0 \end{bmatrix} = \begin{bmatrix} (1)(3) + (-1)(2) + (0)(-2) + (0)(0) \\ (1)(3) + (1)(2) + (-2)(-2) + (0)(0) \\ (1)(3) + (1)(2) + (1)(-2) + (-3)(0) \end{bmatrix}
+\]
+\[
+E(AX) = \begin{bmatrix} 3 - 2 + 0 + 0 \\ 3 + 2 + 4 + 0 \\ 3 + 2 - 2 + 0 \end{bmatrix} = \begin{bmatrix} 1 \\ 9 \\ 3 \end{bmatrix}
+\]
+
+\noindent \textbf{(b)} $Cov(AX)$
+\[
+Cov(AX) = A\Sigma_X A' = A(3I)A' = 3(AA')
+\]
+First compute $AA'$:
+\[
+AA' = \begin{bmatrix} 1 & -1 & 0 & 0 \\ 1 & 1 & -2 & 0 \\ 1 & 1 & 1 & -3 \end{bmatrix} \begin{bmatrix} 1 & 1 & 1 \\ -1 & 1 & 1 \\ 0 & -2 & 1 \\ 0 & 0 & -3 \end{bmatrix} 
+\]
+\[
+= \begin{bmatrix} (1)(1)+(-1)(-1)+(0)(0)+(0)(0) & (1)(1)+(-1)(1)+(0)(-2)+(0)(0) & (1)(1)+(-1)(1)+(0)(1)+(0)(-3) \\ (1)(1)+(1)(-1)+(-2)(0)+(0)(0) & (1)(1)+(1)(1)+(-2)(-2)+(0)(0) & (1)(1)+(1)(1)+(-2)(1)+(0)(-3) \\ (1)(1)+(1)(-1)+(1)(0)+(-3)(0) & (1)(1)+(1)(1)+(1)(-2)+(-3)(0) & (1)(1)+(1)(1)+(1)(1)+(-3)(-3) \end{bmatrix}
+\]
+\[
+= \begin{bmatrix} 1+1+0+0 & 1-1+0+0 & 1-1+0+0 \\ 1-1+0+0 & 1+1+4+0 & 1+1-2+0 \\ 1-1+0+0 & 1+1-2+0 & 1+1+1+9 \end{bmatrix} = \begin{bmatrix} 2 & 0 & 0 \\ 0 & 6 & 0 \\ 0 & 0 & 12 \end{bmatrix}
+\]
+Next, multiply the entire matrix by the scalar $3$:
+\[
+Cov(AX) = 3 \begin{bmatrix} 2 & 0 & 0 \\ 0 & 6 & 0 \\ 0 & 0 & 12 \end{bmatrix} = \begin{bmatrix} (3)(2) & (3)(0) & (3)(0) \\ (3)(0) & (3)(6) & (3)(0) \\ (3)(0) & (3)(0) & (3)(12) \end{bmatrix} = \begin{bmatrix} 6 & 0 & 0 \\ 0 & 18 & 0 \\ 0 & 0 & 36 \end{bmatrix}
+\]
+
+\noindent \textbf{(c)} Which pairs of linear combinations have zero covariances? \\
+The covariance between any two different linear combinations is found in the off-diagonal elements of the $Cov(AX)$ matrix we just calculated. Because every off-diagonal element is exactly $0$, we can conclude that all pairs of linear combinations have zero covariances.
+
+\end{document}
